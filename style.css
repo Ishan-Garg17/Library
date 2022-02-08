@@ -1,0 +1,22 @@
+.Error{
+    background-color: rgb(218, 97, 97);
+    color: aliceblue;
+}
+.Success{
+    background-color: rgb(8, 211, 143);
+    color: aliceblue;
+}
+div::-webkit-scrollbar{
+    width: 9px;
+  
+}
+div::-webkit-scrollbar-track{
+   background: rgb(198, 217, 233);
+}
+div::-webkit-scrollbar-thumb{
+    background: #212529;
+    border-radius: 13px;
+}
+body{
+    background-color: aliceblue;
+}
