@@ -20,3 +20,6 @@ div::-webkit-scrollbar-thumb{
 body{
     background-color: aliceblue;
 }
+.visible{
+    display: none;
+}

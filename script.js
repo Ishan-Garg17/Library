@@ -1,3 +1,6 @@
+const Addbutton = document.getElementById('button');
+const DeleteAll = document.getElementById('deleteAll');
+
 class Library {
     constructor(name, author, type) {
         this.name = name;
@@ -19,7 +22,7 @@ Display.prototype.show = function (s, text) {
 
 Display.prototype.add = function (book) {
     if (book.name < 2 || book.author < 2) {
-        display.show('Error', 'Book cannot be added');
+        display.show('Error', 'Book cannot be added,  Please enter a Valid Book Name and Author Name');
     }
     else {
         index++;
@@ -34,6 +37,16 @@ Display.prototype.add = function (book) {
 Display.prototype.updateLibrary =() => {
     tableBody = document.getElementById('tableBody');
     tableBody.innerHTML = "";
+    
+    if(books.length>0)
+    {
+    DeleteAll.style = 'display: inline !important;'
+    } 
+    else
+    {
+    DeleteAll.style = 'display: none !important;'
+    }
+
     for (let i = 0; i < books.length; i++) {
         tableBody.innerHTML += `<tr>
           <th scope="row">${i + 1}</th>
@@ -55,8 +68,8 @@ else{
     display.updateLibrary();
 }
 
-button = document.getElementById('button');
-button.addEventListener('click', function (e) {
+
+Addbutton.addEventListener('click', function (e) {
     e.preventDefault();
     bookname = document.getElementById('inputBookName').value;
     Author = document.getElementById('inputAuthor').value;
@@ -64,7 +77,6 @@ button.addEventListener('click', function (e) {
     crime = document.getElementById('gridRadio1');
     fiction = document.getElementById('gridRadio2');
     fantasy = document.getElementById('gridRadio3');
-    console.log(fiction);
     if (fiction.checked)
         type = "Fiction";
     else if (crime.checked)
@@ -76,4 +88,9 @@ button.addEventListener('click', function (e) {
     display.add(book);
 })
 
+DeleteAll.addEventListener('click',()=>{
+    books = [];
+    localStorage.clear()
+    display.updateLibrary();
 
+})
