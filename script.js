@@ -87,7 +87,7 @@ Addbutton.addEventListener('click', function (e) {
     display = new Display();
     display.add(book);
 })
-//This is The button that can be used for deleting the notes as it clears the Local Storage and Then updates Our DOM agsain
+//This is The button that can be used for deleting the notes as it clears the Local Storage and Then updates Our DOM again
 DeleteAll.addEventListener('click',()=>{
     books = [];
     localStorage.clear()
